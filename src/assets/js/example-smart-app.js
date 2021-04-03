@@ -9,6 +9,11 @@
 
     function onReady(smart)  {
       if (smart.hasOwnProperty('patient')) {
+
+        //Fire the custom event for angular to load
+        const event = new Event('build', { detail: smart });
+        document.dispatchEvent(event);
+        //End of Fire the custom event for angular to load
         var patient = smart.patient;
         var pt = patient.read();
         var obv = smart.patient.api.fetchAll({
