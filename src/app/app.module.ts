@@ -5,6 +5,18 @@ import { delay } from 'rxjs/operators';
 
 import { AppComponent } from './app.component';
 
+//Create a custom event
+
+const event = new Event('build');
+
+//Fire the custom event after x seconds
+//This is to emulate the SMART on FHIR token call
+setTimeout(() => { 
+  document.dispatchEvent(event);
+},3000);
+
+
+/*
 export function initApp(http: HttpClient) {
   return () => {
     return http.get('https://api.github.com/users/VishwanathShankar')
@@ -14,6 +26,8 @@ export function initApp(http: HttpClient) {
       });
   };
 }
+*/
+
 
 /*
   export function initApp(http: HttpClient) {
@@ -21,15 +35,54 @@ export function initApp(http: HttpClient) {
       return new Promise((resolve) => {
              setTimeout(() => {
                console.log('In initApp');
+               document.dispatchEvent(event);
                resolve("testData");
              }, 5000);
            });
     };
   }
+
 */
 
-/*
+ export function initApp() {
+  return () => {
+      return new Promise((resolve,reject) => {
+        
+        document.addEventListener('build', function() {
+          console.log("Custom event caught");
+          resolve("testData");
+          //reject("testData");
+        });
+        
 
+/*
+             setTimeout(() => {
+               console.log('In initApp');
+               document.addEventListener('build', function() {
+                console.log("Custom event caught");
+                //resolve("testData");
+                reject("testData");
+              });
+             }, 5000);
+
+             */
+            
+            });
+          };
+    }
+
+  /*
+  var getinitAppResults = initApp();
+  getinitAppResults.then(promiseData => {
+    console.log("In the then method of getinitAppResults");
+    console.log(promiseData);
+  })
+  .catch(rejectedData => {
+    console.log("In the then method of getinitAppResults");
+    console.log(rejectedData);
+  })
+*/
+  /*
 export function initApp(http: HttpClient) {
   return () => {
     return http.get('/assets/en.json')
