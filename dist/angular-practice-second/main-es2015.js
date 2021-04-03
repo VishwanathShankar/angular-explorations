@@ -423,12 +423,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 //Create a custom event
-const event = new Event('build');
+//const event = new Event('build');
 //Fire the custom event after x seconds
 //This is to emulate the SMART on FHIR token call
+/*
 setTimeout(() => {
-    document.dispatchEvent(event);
-}, 6000);
+  document.dispatchEvent(event);
+},6000);
+*/
 /*
 export function initApp(http: HttpClient) {
   return () => {
@@ -457,8 +459,9 @@ export function initApp(http: HttpClient) {
 function initApp() {
     return () => {
         return new Promise((resolve, reject) => {
-            document.addEventListener('build', function () {
+            document.addEventListener('build', function (e) {
                 console.log("Custom event caught");
+                console.log(e);
                 resolve("testData");
                 //reject("testData");
             });

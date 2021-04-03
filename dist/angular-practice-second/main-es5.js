@@ -876,14 +876,16 @@
       var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ./app.component */
       "Sy1n"); //Create a custom event
-
-
-      var event = new Event('build'); //Fire the custom event after x seconds
+      //const event = new Event('build');
+      //Fire the custom event after x seconds
       //This is to emulate the SMART on FHIR token call
 
-      setTimeout(function () {
+      /*
+      setTimeout(() => {
         document.dispatchEvent(event);
-      }, 6000);
+      },6000);
+      */
+
       /*
       export function initApp(http: HttpClient) {
         return () => {
@@ -911,11 +913,13 @@
       
       */
 
+
       function initApp() {
         return function () {
           return new Promise(function (resolve, reject) {
-            document.addEventListener('build', function () {
+            document.addEventListener('build', function (e) {
               console.log("Custom event caught");
+              console.log(e);
               resolve("testData"); //reject("testData");
             });
             /*
