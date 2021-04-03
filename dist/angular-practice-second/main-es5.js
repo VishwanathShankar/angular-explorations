@@ -883,7 +883,7 @@
 
       setTimeout(function () {
         document.dispatchEvent(event);
-      }, 3000);
+      }, 6000);
       /*
       export function initApp(http: HttpClient) {
         return () => {
