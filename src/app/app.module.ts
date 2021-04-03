@@ -13,7 +13,7 @@ const event = new Event('build');
 //This is to emulate the SMART on FHIR token call
 setTimeout(() => { 
   document.dispatchEvent(event);
-},3000);
+},6000);
 
 
 /*
