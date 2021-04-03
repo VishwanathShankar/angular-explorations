@@ -1,0 +1,12 @@
+<p>ajax-component works!</p>
+<h3>Shipping Prices</h3>
+
+<div class="shipping-item" *ngFor="let shipping of shippingCosts | async">
+  <span>{{ shipping.type }}</span>
+  <span>{{ shipping.price | currency }}</span>
+</div>
+<br>
+<div class="shipping-item" *ngFor="let user of usersList">
+    <span>{{ user.id }}</span>
+    <span>{{ user.name }}</span>
+</div>

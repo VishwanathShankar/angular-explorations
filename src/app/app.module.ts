@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { AjaxComponentComponent } from './ajax-component/ajax-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AjaxComponentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
