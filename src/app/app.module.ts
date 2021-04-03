@@ -4,7 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { delay } from 'rxjs/operators';
 
 import { AppComponent } from './app.component';
-/*
+
 export function initApp(http: HttpClient) {
   return () => {
     return http.get('https://api.github.com/users/VishwanathShankar')
@@ -14,18 +14,32 @@ export function initApp(http: HttpClient) {
       });
   };
 }
-*/
+
+/*
   export function initApp(http: HttpClient) {
     return () => {
       return new Promise((resolve) => {
              setTimeout(() => {
                console.log('In initApp');
                resolve("testData");
-             }, 3000);
+             }, 5000);
            });
     };
   }
+*/
 
+/*
+
+export function initApp(http: HttpClient) {
+  return () => {
+    return http.get('/assets/en.json')
+      .toPromise()
+      .then((resp) => {
+        console.log('Response 1 - ', resp);
+      });
+  };
+}
+*/
 
 @NgModule({
   declarations: [
