@@ -185,6 +185,9 @@
           this.http.get('https://api.github.com/users/mike-north', this.options).subscribe(function (resp) {
             console.log('Response 2 - ', resp);
           });
+          this.http.get('assets/en.json').subscribe(function (resp) {
+            console.log('Response 3 - ', resp);
+          });
         }
 
         _createClass(AppComponent, [{

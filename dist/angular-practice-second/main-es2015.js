@@ -110,6 +110,9 @@ class AppComponent {
         this.http.get('https://api.github.com/users/mike-north', this.options).subscribe((resp) => {
             console.log('Response 2 - ', resp);
         });
+        this.http.get('assets/en.json').subscribe((resp) => {
+            console.log('Response 3 - ', resp);
+        });
     }
     ngOnInit() {
     }
