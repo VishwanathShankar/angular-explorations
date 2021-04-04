@@ -11,6 +11,8 @@
       if (smart.hasOwnProperty('patient')) {
 
         //Fire the custom event for angular to load
+        console.log("What is smart object inside oauth ready");
+        console.log(smart);
         const event = new Event('build', { detail: smart });
         document.dispatchEvent(event);
         //End of Fire the custom event for angular to load

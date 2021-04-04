@@ -51,9 +51,9 @@ export function initApp(http: HttpClient) {
       return new Promise((resolve,reject) => {
         
           document.addEventListener('build', function(e) {
-          console.log("Custom event caught");
-          console.log(e);
-          resolve("testData");
+            console.log("Custom event caught");
+            console.log(e);
+            resolve("testData");
           //reject("testData");
         });
         
