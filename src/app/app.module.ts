@@ -7,15 +7,15 @@ import { AppComponent } from './app.component';
 
 //Create a custom event
 
-//const event = new Event('build');
+const event1 = new CustomEvent('build-with-data', {detail: { 'name': 'vishwa'} });
 
 //Fire the custom event after x seconds
 //This is to emulate the SMART on FHIR token call
-/*
+
 setTimeout(() => { 
-  document.dispatchEvent(event);
+  document.dispatchEvent(event1);
 },6000);
-*/
+
 
 
 /*
@@ -46,12 +46,16 @@ export function initApp(http: HttpClient) {
 
 */
 
+document.addEventListener('build-with-data', function(e) {
+  console.log("Custom event build-with-data caught");
+  console.log(e);
+});
+
  export function initApp() {
   return () => {
       return new Promise((resolve,reject) => {
-        
-          document.addEventListener('build', function(e) {
-            console.log("Custom event caught");
+         document.addEventListener('patientDetailsEvent', function(e) {
+            console.log("Custom event patientDetailsEvent caught");
             console.log(e);
             resolve("testData");
           //reject("testData");

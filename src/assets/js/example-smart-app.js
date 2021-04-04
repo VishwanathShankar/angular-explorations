@@ -13,8 +13,8 @@
         //Fire the custom event for angular to load
         console.log("What is smart object inside oauth ready");
         console.log(smart);
-        const event = new Event('build', { detail: smart });
-        document.dispatchEvent(event);
+        const patientDetailsEvent = new CustomEvent('patientDetailsEvent', { detail: smart });
+        document.dispatchEvent(patientDetailsEvent);
         //End of Fire the custom event for angular to load
         var patient = smart.patient;
         var pt = patient.read();
