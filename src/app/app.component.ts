@@ -28,13 +28,13 @@ export class AppComponent {
     httpOptions.headers = httpOptions.headers.set('Authorization', 'Bearer ' + this.sessionStorageobject.access_token);
     httpOptions.headers = httpOptions.headers.set('patientId', this.sessionStorageobject.patient);
     httpOptions.headers = httpOptions.headers.set('encounterId', this.sessionStorageobject.encounter);
-    httpOptions.headers = httpOptions.headers.set('encounterId', this.sessionStorageobject.tenant);
+    httpOptions.headers = httpOptions.headers.set('tenantId', this.sessionStorageobject.tenant);
     this.options = { headers: httpOptions.headers };
-    this.http.get('https://api.github.com/users/mike-north', this.options).subscribe((resp) => {
+    this.http.get('https://api.github.com/users/mike-north').subscribe((resp) => {
       console.log('Response 2 - ', resp);
     });
     
-    this.http.get('assets/en.json').subscribe((resp) => {
+    this.http.get('assets/en.json', this.options).subscribe((resp) => {
       console.log('Response 3 - ', resp);
     });
   }
